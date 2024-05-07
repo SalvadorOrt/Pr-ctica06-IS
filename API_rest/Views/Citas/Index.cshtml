@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AccesoDatos.Citas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaHoraCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medicos.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pacientes.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaHoraCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medicos.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacientes.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CitaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CitaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CitaID })
+        </td>
+    </tr>
+}
+
+</table>
